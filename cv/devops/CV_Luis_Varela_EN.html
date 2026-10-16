@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luis Alejandro Varela Ojeda — CV</title>
+  <style>
+    :root {
+      --ink: #1c2420;
+      --muted: #4e5b53;
+      --line: #d7e4d8;
+      --accent: #55a256;
+      --accent-dark: #3d7c3e;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #f4f7f4;
+      font-size: 10.5pt;
+      line-height: 1.38;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: var(--paper);
+      padding: 0 0 12mm;
+      border-top: 8px solid var(--accent);
+    }
+    header, section { padding-left: 14mm; padding-right: 14mm; }
+    header { padding-top: 11mm; padding-bottom: 2mm; }
+    h1 {
+      margin: 0 0 2px;
+      font-size: 22pt;
+      line-height: 1.1;
+      font-weight: 700;
+      color: #17301a;
+      letter-spacing: -0.01em;
+    }
+    .title {
+      margin: 0;
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+    .keywords {
+      margin: 3px 0 8px;
+      color: var(--muted);
+      font-size: 10pt;
+    }
+    .contact {
+      margin: 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    .contact a { color: var(--accent-dark); text-decoration: none; }
+    h2 {
+      margin: 13px 0 7px;
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+    }
+    p { margin: 0; }
+    article { margin: 0 0 9px; page-break-inside: avoid; }
+    h3 {
+      margin: 0;
+      font-size: 11pt;
+      font-weight: 700;
+      color: #17301a;
+    }
+    .meta {
+      margin: 1px 0 3px;
+      color: var(--muted);
+      font-size: 10pt;
+    }
+    .meta strong { color: var(--accent-dark); font-weight: 600; }
+    ul { margin: 0; padding-left: 16px; }
+    li { margin: 0 0 2px; }
+    .skills p { margin: 0 0 3px; }
+    .label { font-weight: 700; color: var(--accent-dark); }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; width: auto; min-height: auto; border-top: 6px solid var(--accent); }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Luis Alejandro Varela Ojeda</h1>
+      <p class="title">Software Engineer | Full-Stack and Mobile | DevOps</p>
+      <p class="keywords">DevSecOps · Platform Engineer · Site Reliability · Reliability · Observability · CI/CD</p>
+      <p class="contact">
+        Medellín, Colombia
+        · +57 301 614 9692
+        · <a href="mailto:luisvarela2002@gmail.com">luisvarela2002@gmail.com</a>
+        · <a href="mailto:luvarelao@unal.edu.co">luvarelao@unal.edu.co</a>
+        · <a href="https://www.linkedin.com/in/luisvare-la/">linkedin.com/in/luisvare-la</a>
+        · <a href="https://github.com/LuisVarel4">github.com/LuisVarel4</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>
+        Software Engineer with more than 3 years of technical experience, including over 1 year building full-stack and mobile software, and a final-semester Systems and Computer Engineering student.
+        Delivers features from requirements through production support, using clean architecture, API and database design, and asynchronous event-driven workflows across web and mobile clients.
+        Works with Linux, Docker, Kubernetes, CI/CD, Amazon Web Services (AWS), and observability with Prometheus and Grafana.
+        Joins planning and requirements refinement to turn business problems into technical solutions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+
+      <article>
+        <h3>Software Engineer</h3>
+        <p class="meta"><strong>Activeone</strong> | May 2025 – Present | Medellín, Colombia | Remote</p>
+        <ul>
+          <li>Delivered full-stack web and mobile features end to end, from discovery and technical design through implementation, code review, and production support.</li>
+          <li>Joined planning and requirements refinement, and proposed technical solutions to business problems with product and engineering partners.</li>
+          <li>Applied clean architecture so domain rules, API contracts, and client behavior stayed consistent across web and mobile.</li>
+          <li>Managed data models, queries, and integrity between databases and application services.</li>
+          <li>Designed asynchronous event-driven flows for integrations and background processing.</li>
+          <li>Kept authentication, error handling, and delivery flows predictable in production.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Frontend Developer</h3>
+        <p class="meta"><strong>Freelance</strong> | June 2024 – October 2024</p>
+        <ul>
+          <li>Built client-facing web interfaces with React and TypeScript, using reusable components, clear state boundaries, and consistent API integration.</li>
+          <li>Applied responsive layout, accessible structure, typed UI contracts, and explicit loading and error states.</li>
+          <li>Used Git for small reviewable changes and Docker so the local environment matched how the application was delivered.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Auxiliary Student, Web Management</h3>
+        <p class="meta"><strong>Universidad Nacional de Colombia</strong> | August 2024 – July 2025 | Medellín, Colombia | On-site</p>
+        <ul>
+          <li>Managed the Bienestar Minas website with Joomla, Bootstrap, HTML, CSS, and JavaScript, and maintained internal student records.</li>
+          <li>Worked with secretaries, lawyers, social workers, and psychologists to turn operational needs into site updates, data, and reports.</li>
+          <li>Maintained databases, supported workshops, and automated repetitive tasks with Python.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Monitor</h3>
+        <p class="meta"><strong>Universidad Nacional de Colombia</strong> | February 2023 – July 2024 | Medellín, Colombia | Hybrid</p>
+        <ul>
+          <li>Graded assignments and automated recurring academic tasks with Excel, Python, and Apps Script.</li>
+          <li>Led sessions and presentations for classes of up to 200 students.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <p><span class="label">DevOps and cloud:</span> Linux, Docker, Portainer, Kubernetes, Nginx, Traefik, ngrok, WireGuard, Prometheus, Grafana, Git, GitHub, GitHub Actions, Jenkins, CI/CD, Amazon Web Services (AWS), IAM, Lambda, S3, SQS, Step Functions, Google Cloud Platform (GCP).</p>
+        <p><span class="label">Mobile and frontend:</span> Flutter, FlutterFlow, Kotlin, React Native, React, Vue.js, Next.js, Astro, TypeScript, JavaScript, Dart, Tailwind CSS, Pinia, TanStack, Firebase Cloud Messaging, Google Play deployment, Figma.</p>
+        <p><span class="label">Backend:</span> Laravel, Django, Node.js, PHP, Python, Java, C++, REST APIs, microservices, clean architecture, JWT.</p>
+        <p><span class="label">Databases:</span> PostgreSQL, MySQL, Redis, DynamoDB, Firebase, Supabase, Snowflake.</p>
+        <p><span class="label">AI:</span> Cursor, Claude, ChatGPT, GitHub Copilot, OpenCode, Grok, MCP, agent skills, spec-driven development, current tooling updates.</p>
+        <p><span class="label">Practices:</span> Agile planning, requirements refinement, code review, Jira, Atlassian, Slack, Linear, Google Workspace.</p>
+        <p><span class="label">Languages:</span> Spanish (native), English (B2).</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <article>
+        <h3>Systems and Informatics Engineering, final semester</h3>
+        <p class="meta"><strong>Universidad Nacional de Colombia, Medellín</strong> | October 2021 – Present</p>
+      </article>
+      <article>
+        <h3>Diploma in Programming and Web Development</h3>
+        <p class="meta"><strong>Universidad del Norte</strong> | October 2020</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Achievements</h2>
+      <ul>
+        <li>Active participant in national and international competitions, representing Universidad Nacional de Colombia.</li>
+        <li>Medals in competitive programming, swimming, and water polo.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

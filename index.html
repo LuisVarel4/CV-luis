@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luis Alejandro Varela Ojeda — CV</title>
+  <style>
+    :root {
+      --ink: #17301a;
+      --muted: #4e5b53;
+      --line: #d7e4d8;
+      --accent: #55a256;
+      --accent-dark: #3d7c3e;
+      --paper: #ffffff;
+      --bg: #f4f7f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      background: var(--paper);
+      border-top: 8px solid var(--accent);
+      padding: 28px 28px 22px;
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+    }
+    .role {
+      margin: 0 0 10px;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .contact {
+      margin: 0;
+      color: var(--muted);
+    }
+    .contact a { color: var(--accent-dark); text-decoration: none; }
+    main {
+      margin-top: 18px;
+      background: var(--paper);
+      padding: 24px 28px 28px;
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+    .lang {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .lang button,
+    .roles a {
+      font: inherit;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .lang button {
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+    .lang button[aria-pressed="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .roles a {
+      display: block;
+      padding: 16px 14px;
+      border-radius: 8px;
+    }
+    .roles a strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-dark);
+    }
+    .roles a span { color: var(--muted); font-size: 0.92rem; }
+    .roles a:hover { border-color: var(--accent); }
+    .note {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Luis Alejandro Varela Ojeda</h1>
+      <p class="role">Software Engineer | Full-Stack and Mobile | DevOps</p>
+      <p class="contact">
+        Medellín, Colombia
+        · <a href="mailto:luisvarela2002@gmail.com">luisvarela2002@gmail.com</a>
+        · <a href="https://www.linkedin.com/in/luisvare-la/">LinkedIn</a>
+        · <a href="https://github.com/LuisVarel4">GitHub</a>
+      </p>
+    </header>
+    <main>
+      <h2 id="lang-label">Language</h2>
+      <div class="lang" role="group" aria-labelledby="lang-label">
+        <button type="button" id="lang-en" aria-pressed="true">English</button>
+        <button type="button" id="lang-es" aria-pressed="false">Español</button>
+      </div>
+      <h2 id="role-label">Download CV</h2>
+      <div class="roles" id="roles" aria-labelledby="role-label"></div>
+      <p class="note" id="note">Each file is an HTML page. Open it in a browser and print to PDF.</p>
+    </main>
+  </div>
+  <script>
+    const roles = [
+      { id: "devops", en: "DevOps", es: "DevOps" },
+      { id: "mobile", en: "Mobile", es: "Móvil" },
+      { id: "full-stack", en: "Full-Stack", es: "Full stack" },
+      { id: "backend", en: "Backend", es: "Backend" },
+      { id: "frontend", en: "Frontend", es: "Frontend" }
+    ];
+    const copy = {
+      en: { file: "EN", action: "Download", note: "Each file is an HTML page. Open it in a browser and print to PDF." },
+      es: { file: "ES", action: "Descargar", note: "Cada archivo es una página HTML. Ábrelo en el navegador e imprímelo a PDF." }
+    };
+    let lang = "en";
+    const rolesEl = document.getElementById("roles");
+    const noteEl = document.getElementById("note");
+
+    function render() {
+      const text = copy[lang];
+      noteEl.textContent = text.note;
+      document.documentElement.lang = lang === "es" ? "es" : "en";
+      document.getElementById("lang-en").setAttribute("aria-pressed", String(lang === "en"));
+      document.getElementById("lang-es").setAttribute("aria-pressed", String(lang === "es"));
+      rolesEl.replaceChildren();
+      for (const role of roles) {
+        const link = document.createElement("a");
+        const file = "CV_Luis_Varela_" + text.file + ".html";
+        link.href = "cv/" + role.id + "/" + file;
+        link.setAttribute("download", "CV_Luis_Varela_" + role.id + "_" + text.file + ".html");
+        const title = document.createElement("strong");
+        title.textContent = lang === "es" ? role.es : role.en;
+        const action = document.createElement("span");
+        action.textContent = text.action + " · " + text.file;
+        link.append(title, action);
+        rolesEl.append(link);
+      }
+    }
+
+    document.getElementById("lang-en").addEventListener("click", function () { lang = "en"; render(); });
+    document.getElementById("lang-es").addEventListener("click", function () { lang = "es"; render(); });
+    render();
+  </script>
+</body>
+</html>
