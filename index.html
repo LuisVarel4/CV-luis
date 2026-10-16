@@ -65,7 +65,7 @@
       margin-bottom: 22px;
     }
     .lang button,
-    .roles a {
+    .actions a {
       font: inherit;
       cursor: pointer;
       border: 1px solid var(--line);
@@ -84,21 +84,33 @@
     }
     .roles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
     }
-    .roles a {
-      display: block;
-      padding: 16px 14px;
+    .card {
+      border: 1px solid var(--line);
       border-radius: 8px;
+      padding: 14px;
     }
-    .roles a strong {
-      display: block;
-      margin-bottom: 4px;
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
       color: var(--accent-dark);
     }
-    .roles a span { color: var(--muted); font-size: 0.92rem; }
-    .roles a:hover { border-color: var(--accent); }
+    .actions { display: flex; gap: 8px; }
+    .actions a {
+      flex: 1;
+      text-align: center;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .actions a.pdf {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .actions a:hover { border-color: var(--accent-dark); }
     .note {
       margin: 16px 0 0;
       color: var(--muted);
@@ -124,9 +136,9 @@
         <button type="button" id="lang-en" aria-pressed="true">English</button>
         <button type="button" id="lang-es" aria-pressed="false">Español</button>
       </div>
-      <h2 id="role-label">Download CV</h2>
+      <h2 id="role-label">CV</h2>
       <div class="roles" id="roles" aria-labelledby="role-label"></div>
-      <p class="note" id="note">Each file is an HTML page. Open it in a browser and print to PDF.</p>
+      <p class="note" id="note">See CV opens the page. Download PDF saves a file you can send.</p>
     </main>
   </div>
   <script>
@@ -138,8 +150,8 @@
       { id: "frontend", en: "Frontend", es: "Frontend" }
     ];
     const copy = {
-      en: { file: "EN", action: "Download", note: "Each file is an HTML page. Open it in a browser and print to PDF." },
-      es: { file: "ES", action: "Descargar", note: "Cada archivo es una página HTML. Ábrelo en el navegador e imprímelo a PDF." }
+      en: { file: "EN", see: "See CV", pdf: "Download PDF", note: "See CV opens the page. Download PDF saves a file you can send." },
+      es: { file: "ES", see: "Ver CV", pdf: "Descargar PDF", note: "Ver CV abre la página. Descargar PDF guarda un archivo para enviar." }
     };
     let lang = "en";
     const rolesEl = document.getElementById("roles");
@@ -153,16 +165,29 @@
       document.getElementById("lang-es").setAttribute("aria-pressed", String(lang === "es"));
       rolesEl.replaceChildren();
       for (const role of roles) {
-        const link = document.createElement("a");
-        const file = "CV_Luis_Varela_" + text.file + ".html";
-        link.href = "cv/" + role.id + "/" + file;
-        link.setAttribute("download", "CV_Luis_Varela_" + role.id + "_" + text.file + ".html");
-        const title = document.createElement("strong");
+        const base = "cv/" + role.id + "/CV_Luis_Varela_" + text.file;
+        const card = document.createElement("article");
+        card.className = "card";
+        const title = document.createElement("h3");
         title.textContent = lang === "es" ? role.es : role.en;
-        const action = document.createElement("span");
-        action.textContent = text.action + " · " + text.file;
-        link.append(title, action);
-        rolesEl.append(link);
+        const actions = document.createElement("div");
+        actions.className = "actions";
+
+        const see = document.createElement("a");
+        see.href = base + ".html";
+        see.target = "_blank";
+        see.rel = "noopener";
+        see.textContent = text.see;
+
+        const pdf = document.createElement("a");
+        pdf.className = "pdf";
+        pdf.href = base + ".pdf";
+        pdf.setAttribute("download", "CV_Luis_Varela_" + role.id + "_" + text.file + ".pdf");
+        pdf.textContent = text.pdf;
+
+        actions.append(see, pdf);
+        card.append(title, actions);
+        rolesEl.append(card);
       }
     }
 
